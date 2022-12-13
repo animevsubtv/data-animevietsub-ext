@@ -54,6 +54,6 @@ transform.json
 ```json
 {
   "scheme": "https",
-  "host": "animevietsub.cc"
+  "host": "google.com"
 }
 ```
