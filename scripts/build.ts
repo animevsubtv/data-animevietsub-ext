@@ -45,21 +45,21 @@ async function buildRules(): Promise<
   return rules.map((item, index) => Object.assign(item, { id: index + 1 }))
 }
 async function buildTransform(): Promise<{ scheme: string; host: string }> {
-  const { scheme, host } = JSON.parse(
+  const { scheme, host, name } = JSON.parse(
     await fs.promises.readFile(
       path.resolve(__dirname, "..", "transform.json"),
       "utf8"
     )
   )
 
-  if (!scheme || !host) {
+  if (!scheme || !host || !name) {
     // eslint-disable-next-line functional/no-throw-statement
     throw new Error(
-      "[Error]: File transform.json required 'scheme' and 'host'."
+      "[Error]: File transform.json required 'scheme', 'host' and 'name'."
     )
   }
 
-  return { scheme, host }
+  return { scheme, host, name }
 }
 async function buildRegexSubstitution(): Promise<string> {
   const { host } = JSON.parse(
