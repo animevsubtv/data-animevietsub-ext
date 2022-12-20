@@ -1,4 +1,5 @@
 {
   "scheme": "https",
-  "host": "google.com"
+  "host": "google.com",
+  "name": "Google"
 }
